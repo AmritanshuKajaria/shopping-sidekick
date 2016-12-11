@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C28D4C3A76570101CB0364B /* Pods_shopping_sidekick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF10FC540DF147DBBE29D011 /* Pods_shopping_sidekick.framework */; };
 		C1B9AF051DFDF345006BAD21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B9AF041DFDF345006BAD21 /* AppDelegate.swift */; };
 		C1B9AF071DFDF345006BAD21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B9AF061DFDF345006BAD21 /* ViewController.swift */; };
 		C1B9AF0A1DFDF345006BAD21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1B9AF081DFDF345006BAD21 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05FA21D43C35431EC4354B62 /* Pods-shopping-sidekick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopping-sidekick.release.xcconfig"; path = "Pods/Target Support Files/Pods-shopping-sidekick/Pods-shopping-sidekick.release.xcconfig"; sourceTree = "<group>"; };
 		C1B9AF011DFDF345006BAD21 /* shopping-sidekick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "shopping-sidekick.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1B9AF041DFDF345006BAD21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1B9AF061DFDF345006BAD21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		C1B9AF0B1DFDF345006BAD21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1B9AF0E1DFDF345006BAD21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1B9AF101DFDF345006BAD21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF10FC540DF147DBBE29D011 /* Pods_shopping_sidekick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopping_sidekick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1093A7E537ABCFBB74A8574 /* Pods-shopping-sidekick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopping-sidekick.debug.xcconfig"; path = "Pods/Target Support Files/Pods-shopping-sidekick/Pods-shopping-sidekick.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C28D4C3A76570101CB0364B /* Pods_shopping_sidekick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		065E246C5DC66E0430F2927C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F1093A7E537ABCFBB74A8574 /* Pods-shopping-sidekick.debug.xcconfig */,
+				05FA21D43C35431EC4354B62 /* Pods-shopping-sidekick.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		78EA001E5AF11B58FBC04067 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF10FC540DF147DBBE29D011 /* Pods_shopping_sidekick.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C1B9AEF81DFDF345006BAD21 = {
 			isa = PBXGroup;
 			children = (
 				C1B9AF031DFDF345006BAD21 /* shopping-sidekick */,
 				C1B9AF021DFDF345006BAD21 /* Products */,
+				065E246C5DC66E0430F2927C /* Pods */,
+				78EA001E5AF11B58FBC04067 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1B9AF131DFDF345006BAD21 /* Build configuration list for PBXNativeTarget "shopping-sidekick" */;
 			buildPhases = (
+				ADEEEF8F9FD02FC0FC82F360 /* [CP] Check Pods Manifest.lock */,
 				C1B9AEFD1DFDF345006BAD21 /* Sources */,
 				C1B9AEFE1DFDF345006BAD21 /* Frameworks */,
 				C1B9AEFF1DFDF345006BAD21 /* Resources */,
+				1351312A437D685E1EFD90E7 /* [CP] Embed Pods Frameworks */,
+				FBF76869D208F722FE80D319 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1351312A437D685E1EFD90E7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-shopping-sidekick/Pods-shopping-sidekick-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADEEEF8F9FD02FC0FC82F360 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FBF76869D208F722FE80D319 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-shopping-sidekick/Pods-shopping-sidekick-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C1B9AEFD1DFDF345006BAD21 /* Sources */ = {
@@ -257,6 +332,7 @@
 		};
 		C1B9AF141DFDF345006BAD21 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1093A7E537ABCFBB74A8574 /* Pods-shopping-sidekick.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MXU3E7ZR48;
@@ -270,6 +346,7 @@
 		};
 		C1B9AF151DFDF345006BAD21 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05FA21D43C35431EC4354B62 /* Pods-shopping-sidekick.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MXU3E7ZR48;
