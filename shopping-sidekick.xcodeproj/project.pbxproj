@@ -1,0 +1,307 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C1B9AF051DFDF345006BAD21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B9AF041DFDF345006BAD21 /* AppDelegate.swift */; };
+		C1B9AF071DFDF345006BAD21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B9AF061DFDF345006BAD21 /* ViewController.swift */; };
+		C1B9AF0A1DFDF345006BAD21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1B9AF081DFDF345006BAD21 /* Main.storyboard */; };
+		C1B9AF0C1DFDF345006BAD21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1B9AF0B1DFDF345006BAD21 /* Assets.xcassets */; };
+		C1B9AF0F1DFDF345006BAD21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1B9AF0D1DFDF345006BAD21 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C1B9AF011DFDF345006BAD21 /* shopping-sidekick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "shopping-sidekick.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1B9AF041DFDF345006BAD21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C1B9AF061DFDF345006BAD21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C1B9AF091DFDF345006BAD21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C1B9AF0B1DFDF345006BAD21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C1B9AF0E1DFDF345006BAD21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C1B9AF101DFDF345006BAD21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C1B9AEFE1DFDF345006BAD21 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C1B9AEF81DFDF345006BAD21 = {
+			isa = PBXGroup;
+			children = (
+				C1B9AF031DFDF345006BAD21 /* shopping-sidekick */,
+				C1B9AF021DFDF345006BAD21 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C1B9AF021DFDF345006BAD21 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C1B9AF011DFDF345006BAD21 /* shopping-sidekick.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C1B9AF031DFDF345006BAD21 /* shopping-sidekick */ = {
+			isa = PBXGroup;
+			children = (
+				C1B9AF041DFDF345006BAD21 /* AppDelegate.swift */,
+				C1B9AF061DFDF345006BAD21 /* ViewController.swift */,
+				C1B9AF081DFDF345006BAD21 /* Main.storyboard */,
+				C1B9AF0B1DFDF345006BAD21 /* Assets.xcassets */,
+				C1B9AF0D1DFDF345006BAD21 /* LaunchScreen.storyboard */,
+				C1B9AF101DFDF345006BAD21 /* Info.plist */,
+			);
+			path = "shopping-sidekick";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C1B9AF001DFDF345006BAD21 /* shopping-sidekick */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1B9AF131DFDF345006BAD21 /* Build configuration list for PBXNativeTarget "shopping-sidekick" */;
+			buildPhases = (
+				C1B9AEFD1DFDF345006BAD21 /* Sources */,
+				C1B9AEFE1DFDF345006BAD21 /* Frameworks */,
+				C1B9AEFF1DFDF345006BAD21 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "shopping-sidekick";
+			productName = "shopping-sidekick";
+			productReference = C1B9AF011DFDF345006BAD21 /* shopping-sidekick.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C1B9AEF91DFDF345006BAD21 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Amritanshu Kajaria";
+				TargetAttributes = {
+					C1B9AF001DFDF345006BAD21 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = MXU3E7ZR48;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C1B9AEFC1DFDF345006BAD21 /* Build configuration list for PBXProject "shopping-sidekick" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C1B9AEF81DFDF345006BAD21;
+			productRefGroup = C1B9AF021DFDF345006BAD21 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C1B9AF001DFDF345006BAD21 /* shopping-sidekick */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C1B9AEFF1DFDF345006BAD21 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1B9AF0F1DFDF345006BAD21 /* LaunchScreen.storyboard in Resources */,
+				C1B9AF0C1DFDF345006BAD21 /* Assets.xcassets in Resources */,
+				C1B9AF0A1DFDF345006BAD21 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C1B9AEFD1DFDF345006BAD21 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1B9AF071DFDF345006BAD21 /* ViewController.swift in Sources */,
+				C1B9AF051DFDF345006BAD21 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C1B9AF081DFDF345006BAD21 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C1B9AF091DFDF345006BAD21 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C1B9AF0D1DFDF345006BAD21 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C1B9AF0E1DFDF345006BAD21 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C1B9AF111DFDF345006BAD21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C1B9AF121DFDF345006BAD21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C1B9AF141DFDF345006BAD21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MXU3E7ZR48;
+				INFOPLIST_FILE = "shopping-sidekick/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nyu.edu.shopping-sidekick";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		C1B9AF151DFDF345006BAD21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MXU3E7ZR48;
+				INFOPLIST_FILE = "shopping-sidekick/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nyu.edu.shopping-sidekick";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C1B9AEFC1DFDF345006BAD21 /* Build configuration list for PBXProject "shopping-sidekick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1B9AF111DFDF345006BAD21 /* Debug */,
+				C1B9AF121DFDF345006BAD21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1B9AF131DFDF345006BAD21 /* Build configuration list for PBXNativeTarget "shopping-sidekick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1B9AF141DFDF345006BAD21 /* Debug */,
+				C1B9AF151DFDF345006BAD21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C1B9AEF91DFDF345006BAD21 /* Project object */;
+}
