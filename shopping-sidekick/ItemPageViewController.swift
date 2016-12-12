@@ -12,6 +12,7 @@ class ItemPageViewController: UIViewController {
     
         var isInList = true
     
+    @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var desiredPriceField: UITextField!
     
     @IBOutlet weak var realPrice: UILabel!

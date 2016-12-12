@@ -173,7 +173,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVt-zE-mjK">
                                 <rect key="frame" x="257" y="41" width="102" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Change Text"/>
+                                <state key="normal" title="Search"/>
                                 <connections>
                                     <action selector="changeTextButton:" destination="Fco-3K-w5n" eventType="touchUpInside" id="o9U-EV-8Km"/>
                                 </connections>
@@ -267,12 +267,6 @@
                                                     <segue destination="BYZ-38-t0r" kind="showDetail" action="showViewController:sender:" id="WyE-iG-wCT"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Product Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vn9-XP-dIQ">
-                                                <rect key="frame" x="132" y="185" width="110" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iE-f4-cxd">
                                                 <rect key="frame" x="55" y="73" width="264" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -288,11 +282,17 @@
                                                 <rect key="frame" x="53" y="256" width="258" height="244"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dv-TE-XcS">
+                                                <rect key="frame" x="166" y="175" width="42" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1000" id="eIu-EL-7OY"/>
-                                            <constraint firstItem="vn9-XP-dIQ" firstAttribute="centerX" secondItem="Jcb-ng-GMx" secondAttribute="centerX" id="gnj-jH-c39"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -316,7 +316,7 @@
                     <connections>
                         <outlet property="desiredPriceField" destination="Kb5-Xe-dtj" id="zCj-Xa-aKd"/>
                         <outlet property="image" destination="W1h-Yt-Sw1" id="Btj-ZW-avn"/>
-                        <outlet property="productLabel" destination="vn9-XP-dIQ" id="3mZ-dV-48I"/>
+                        <outlet property="productName" destination="2dv-TE-XcS" id="pjO-IU-0FC"/>
                         <outlet property="realPrice" destination="q4h-VZ-ssF" id="SJV-TH-5HQ"/>
                     </connections>
                 </viewController>

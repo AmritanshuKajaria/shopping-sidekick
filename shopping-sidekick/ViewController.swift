@@ -37,136 +37,166 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var result:String!
     
     
-    
-//    func getUserItems(UID:String) -> NSMutableArray{
-//
-//        var itemList = NSMutableArray()
-//        itemList.add("ASIN1")//TODO replace with data from database
-//        itemList.add("ASIN2")//TODO replace with data from database
-//        itemList.add("ASIN3")//TODO replace with data from database
-//        return itemList
-//    }
-    
-//    func getItemDetails(ASIN:String) -> NSMutableDictionary{
-//
-//        var itemDetails = NSMutableDictionary()
-//        itemDetails["ASIN"] = ASIN //TODO replace with data from database
-//        itemDetails["avg"] = 193.13 //TODO replace with data from database
-//        itemDetails["highest"] = 1913.13 //TODO replace with data from database
-//        itemDetails["lowest"] = 3.13 //TODO replace with data from database
-//        itemDetails["yesterday"] = 242 //TODO replace with data from database
-//        itemDetails["today"] = 13.13 //TODO replace with data from database
-//        
-//        return itemDetails
-//        
-//    }
-    
-//    func getUsersItem() -> NSMutableArray
-//    {
-//
-//        
-//    }
-    
+    func searchItem(searchTerm:String)   {
         
-//        
-////
-////            print("hi")
-////            print(value)
-////
-////            for item in value!{
-////                
-////                print(item.key)
-////                
-////                var asin = String(_ describing: item.key) as? String
-////                
-////                
-////                
-////                
-////                let res = getItemDetails(asin)
-////                print(res)
-////                
-////                
-////            }
-//            
-////            print(value ?? "")
-////
-////            
-////            let items = value?.allKeys
-////            
-////            var cnt = 1
-////            for item in items!
-////            {
-////                //var asin = String(describing: item)
-////                var asin:String = item as! String
-////                
-////                
-////                let v = "" + String(asin)
-////                
-////                print(v)
-////                
-////                
-////                getItemDetails(v)
-////                
-////                
-////                
-////                
-////                
-////                
-////                
-////                
-////                
-////                
-////                
-////                print(String(cnt) + " ) " + String(describing: item))
-////                cnt += 1
-////            }
-////            
-////            
-//            
-//            // ...
-////        }) { (error) in
-////            print(error.localizedDescription)
-////        }
-////        
-//        return res
-//    }
-//    
-//    func getItemDetails(asin:String) -> NSMutableDictionary
-//    {
-//        var itemDetails = NSMutableDictionary()
-//        
-//        var ref: FIRDatabaseReference!
-//        let res = NSMutableArray()
-//        ref = FIRDatabase.database().reference()
-//        
-//        
-//        ref.child("items").child(asin).observeSingleEvent(of: .value, with: { (snapshot) in
-//            // Get user value
-//            let value = snapshot.value as? NSMutableDictionary
-//            print(value!); print("IT WOKED")
-//            
-//            itemDetails = value!
-//            
-////            print("I am here")
-//            
-////            print(value!)
-//            
-//            
-//            // ...
-//        }) { (error) in
-//            print(error.localizedDescription)
-//        }
-//        
-//        
-//
-//        
-//    return value
-//    }
-//    
+        let config = URLSessionConfiguration.default // Session Configuration
+        let session = URLSession(configuration: config) // Load configuration into Session
+        
+        let cleanSearchTerm = searchTerm.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let amri = "https://api.keepa.com/search?key=82stv4uhgg2t2a6h7gvva05g9qido9n516qjch9bblttjcdjsrlmk7eplnt9q7aa&domain=1&type=product&term="+cleanSearchTerm!
+        print(amri)
+
+        
+        let url = URL(string: amri)!
+        
+        let task = session.dataTask(with: url, completionHandler: {
+            (data, response, error) in
+            
+            if error != nil {
+                
+                print(error!.localizedDescription)
+                
+            } else {
+                
+                do {
+                    
+                    if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]
+                    {
+                        
+                        let res_dic = NSMutableDictionary()
+                        
+                        let products = json["products"] as! NSArray
+                        
+                        print(products.count)
+                        
+                        for item in products
+                        {
+                            let ite = NSMutableDictionary()
+                            res_dic
+                            
+                        }
+                        
+                        let tags = json.keys
+                        
+                        print("tags  => "); print(tags)
+                        
+                        
+                        
+                        
+                        //Implement your logic
+//                        print(json)
+                        
+                    }
+                    
+                } catch {
+                    
+                    print("error in JSONSerialization")
+                    
+                }
+                
+                
+            }
+            
+        })
+        task.resume()
+    }
+    
+    
+    
+    
+    func addItemToUserList(asin:String , desiredPrice:Decimal) {
+        
+        if FIRAuth.auth()?.currentUser != nil {
+            
+            let user = FIRAuth.auth()?.currentUser
+            let uid = user?.uid
+            
+            var ref: FIRDatabaseReference!
+            ref = FIRDatabase.database().reference()
+            
+            let key = ref.child("users").child(uid!).child("subscribedItems").child(asin)
+            key.setValue(desiredPrice)
+            
+            let itemKey = ref.child("items").child(asin).child("subscribedUsers").child(uid!)
+            itemKey.setValue(true)
+            
+        }
+    }
+    
+    func storeItem(asin:String, data:NSMutableDictionary, desiredPrice:Decimal) {
+        
+        if FIRAuth.auth()?.currentUser != nil {
+            
+            let user = FIRAuth.auth()?.currentUser
+            let uid = user?.uid
+            
+            print(data)
+            
+            var ref: FIRDatabaseReference!
+            ref = FIRDatabase.database().reference()
+            
+            
+            let current_data = data["current"] as! NSMutableDictionary;
+            let current = ["timestamp":current_data["timestamp"],
+                           "value":current_data["value"]]
+            
+            let lowest_data = data["lowest"] as! NSMutableDictionary;
+            let lowest = ["timestamp":lowest_data["timestamp"],
+                          "value":lowest_data["value"]]
+            
+            let highest_data = data["highest"] as! NSMutableDictionary;
+            let highest = ["timestamp":highest_data["timestamp"],
+                           "value":highest_data["value"]]
+            
+            let users = NSMutableDictionary();
+            users[uid] = true
+            
+            let item_data = ["title": data["title"],
+                             "image": data["image"],
+                             "avg": data["avg"],
+                             "current": current,
+                             "lowest": lowest,
+                             "highest": highest,
+                             "price_change": data["price_change"],
+                             "inserted_timestamp" : NSDate().timeIntervalSince1970
+            ]
+            
+            let key = ref.child("items").child(asin)
+            key.setValue(item_data)
+            addItemToUserList(asin: asin, desiredPrice: desiredPrice)
+
+        }
+    }
+    
+    let itemDetailsList = NSMutableArray()
+    
     
     
         override func viewDidLoad() {
             super.viewDidLoad()
+            
+//            
+//            let dataTmp = NSMutableDictionary()
+//            let current_data = NSMutableDictionary()
+//            
+//            current_data["timestamp"] = "1481526197"
+//            current_data["value"] = "11.11"
+//            
+//            dataTmp["title"] = "Test title"
+//            dataTmp["image"] = "Test Image"
+//            dataTmp["avg"] = 10.10
+//            dataTmp["current"] = current_data
+//            dataTmp["lowest"] = current_data
+//            dataTmp["highest"] = current_data
+//            dataTmp["price_change"] = 0
+//            
+//            storeItem(asin: "ZZZZZZZ", data:dataTmp, desiredPrice: 10.53 )
+            
+            
+            
+//            addItemToUserList(asin: "B00LAX52IZ", desiredPrice: 10.63)
+            
+            searchItem(searchTerm: "Cambridge SoundWorks OontZ Angle 3")
             
             if FIRAuth.auth()?.currentUser != nil {
                 
@@ -177,7 +207,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.welcomeLabel.text = "Welcome " + name!
                 
                 
-                let itemDetailsList = NSMutableArray()
+                
                 
                 var ref: FIRDatabaseReference!
                 ref = FIRDatabase.database().reference()
@@ -193,7 +223,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                             // Get user value
                             let itemDetails = snapshot.value as? NSMutableDictionary
                             
-                            itemDetailsList.add(itemDetails as Any)
+//                            print(itemDetails)
+                            
+                            
+                            
+                            self.itemDetailsList.add(itemDetails as Any)
+                            
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                            
+                            
                             
                             print(itemDetails ?? "")
                         }) { (error) in
@@ -210,19 +250,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
             }
             
-            
-
-            
-            
-//            let items = getUserItems("asja")
-            
-//            for item in items{
-//                
-//                itemDetailsList.add(getItemDeatils(item))
-//                
-//            }
-            
-            self.tableView.reloadData()
+//            self.tableView.reloadData()
             self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
             
         }
@@ -236,7 +264,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
         {
-            return 1
+            return self.itemDetailsList.count
 //            return 1getUserItems(UID).count;
         }
     
@@ -255,9 +283,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //            
 //            var newItem = Item()
 //            let itemDetails = newItem.getItem()
-////            let itemDetails = (self.array1.object(at: indexPath.row) as AnyObject).getItem()
             
-//            cell.textLabel?.text = itemDetails["ASIN"] as! String
+            let itemDetails = (self.itemDetailsList.object(at: indexPath.row) as AnyObject)
+            
+            cell.textLabel?.text = itemDetails["title"] as! String
             
 //            print(cell.textLabel?.text)
             return cell //BACKUP
@@ -269,7 +298,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //            self.result = itemDetails["ASIN"] as! String
 //
 //            print(self.result)
-//            self.performSegue(withIdentifier: "resultsSegue", sender: self)
+            
+            
+            self.performSegue(withIdentifier: "resultsSegue", sender: self)
             
         }
     
