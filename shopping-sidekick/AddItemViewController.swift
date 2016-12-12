@@ -90,7 +90,7 @@ class AddItemViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("indexPath => " +  String(describing: indexPath))
+        //print("indexPath => " +  String(describing: indexPath))
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
         let itemDetails = (self.searchResult.object(at: indexPath.row) as AnyObject)
         cell.textLabel?.text = itemDetails["title"] as? String
