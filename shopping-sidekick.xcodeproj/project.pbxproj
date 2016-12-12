@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F69D5831DFDFEDB00A01F41 /* SearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69D5821DFDFEDB00A01F41 /* SearchResultsTableViewCell.swift */; };
+		4F69D5851DFE1A6700A01F41 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69D5841DFE1A6700A01F41 /* Item.swift */; };
 		6C28D4C3A76570101CB0364B /* Pods_shopping_sidekick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF10FC540DF147DBBE29D011 /* Pods_shopping_sidekick.framework */; };
 		C1592E891DFDFD4E0032406E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1592E881DFDFD4E0032406E /* GoogleService-Info.plist */; };
 		C1592E931DFE08C80032406E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1592E921DFE08C80032406E /* LoginViewController.swift */; };
@@ -24,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		05FA21D43C35431EC4354B62 /* Pods-shopping-sidekick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopping-sidekick.release.xcconfig"; path = "Pods/Target Support Files/Pods-shopping-sidekick/Pods-shopping-sidekick.release.xcconfig"; sourceTree = "<group>"; };
+		4F69D5821DFDFEDB00A01F41 /* SearchResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCell.swift; sourceTree = "<group>"; };
+		4F69D5841DFE1A6700A01F41 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		C1592E881DFDFD4E0032406E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C1592E921DFE08C80032406E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C1592E941DFE0E6D0032406E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -99,9 +103,11 @@
 				C1592E881DFDFD4E0032406E /* GoogleService-Info.plist */,
 				C1592E921DFE08C80032406E /* LoginViewController.swift */,
 				C1B9AF041DFDF345006BAD21 /* AppDelegate.swift */,
-				C18C144E1DFDFA4700358445 /* TableViewCell.swift */,
 				C1B9AF061DFDF345006BAD21 /* ViewController.swift */,
+				C18C144E1DFDFA4700358445 /* TableViewCell.swift */,
+				4F69D5821DFDFEDB00A01F41 /* SearchResultsTableViewCell.swift */,
 				C1B9AF081DFDF345006BAD21 /* Main.storyboard */,
+				4F69D5841DFE1A6700A01F41 /* Item.swift */,
 				C1B9AF0B1DFDF345006BAD21 /* Assets.xcassets */,
 				C1B9AF0D1DFDF345006BAD21 /* LaunchScreen.storyboard */,
 				C1B9AF101DFDF345006BAD21 /* Info.plist */,
@@ -239,7 +245,9 @@
 				C1592E931DFE08C80032406E /* LoginViewController.swift in Sources */,
 				C18C144F1DFDFA4700358445 /* TableViewCell.swift in Sources */,
 				C18C144B1DFDF9DB00358445 /* ItemPageViewController.swift in Sources */,
+				4F69D5831DFDFEDB00A01F41 /* SearchResultsTableViewCell.swift in Sources */,
 				C18C144D1DFDFA1700358445 /* AddItemViewController.swift in Sources */,
+				4F69D5851DFE1A6700A01F41 /* Item.swift in Sources */,
 				C1B9AF071DFDF345006BAD21 /* ViewController.swift in Sources */,
 				C1B9AF051DFDF345006BAD21 /* AppDelegate.swift in Sources */,
 			);

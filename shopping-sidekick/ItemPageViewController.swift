@@ -10,14 +10,26 @@ import UIKit
 
 class ItemPageViewController: UIViewController {
     
+        var isInList = true
     
-    let someShit = true
+    @IBOutlet weak var desiredPriceField: UITextField!
+    
+    @IBOutlet weak var realPrice: UILabel!
+    
+    @IBAction func changePriceButton(_ sender: Any) {
+//        UsersDesiredPrice = desiredPriceField.text
+    }
+    @IBOutlet weak var image: UIImageView!
     
     @IBAction func addAndRemoveButton(_ sender: UIButton) {
-        if(someShit)
-        { sender.setTitle("Remove From List", for: .normal) }
+        if(isInList)
+        {
+            isInList = false
+        }
         else
-        { sender.setTitle("Add To List", for: .normal) }
+        {
+            isInList = true
+        }
     }
     @IBOutlet weak var productLabel: UILabel!
     var productString: String?

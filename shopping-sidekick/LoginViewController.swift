@@ -16,6 +16,7 @@ import FirebaseAuth
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     @IBOutlet weak var activityIndicatorSpinner: UIActivityIndicatorView!
+
     var loginButton = FBSDKLoginButton()
 
     override func viewDidLoad() {
