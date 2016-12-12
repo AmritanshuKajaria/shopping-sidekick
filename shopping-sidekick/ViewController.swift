@@ -36,74 +36,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     var result:String!
     
-    
-    func searchItem(searchTerm:String)   {
-        
-        let config = URLSessionConfiguration.default // Session Configuration
-        let session = URLSession(configuration: config) // Load configuration into Session
-        
-        let cleanSearchTerm = searchTerm.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-        let amri = "https://api.keepa.com/search?key=82stv4uhgg2t2a6h7gvva05g9qido9n516qjch9bblttjcdjsrlmk7eplnt9q7aa&domain=1&type=product&term="+cleanSearchTerm!
-        print(amri)
-
-        
-        let url = URL(string: amri)!
-        
-        let task = session.dataTask(with: url, completionHandler: {
-            (data, response, error) in
-            
-            if error != nil {
-                
-                print(error!.localizedDescription)
-                
-            } else {
-                
-                do {
-                    
-                    if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]
-                    {
-                        
-                        let res_dic = NSMutableDictionary()
-                        
-                        let products = json["products"] as! NSArray
-                        
-                        print(products.count)
-                        
-                        for item in products
-                        {
-                            let ite = NSMutableDictionary()
-                            res_dic
-                            
-                        }
-                        
-                        let tags = json.keys
-                        
-                        print("tags  => "); print(tags)
-                        
-                        
-                        
-                        
-                        //Implement your logic
-//                        print(json)
-                        
-                    }
-                    
-                } catch {
-                    
-                    print("error in JSONSerialization")
-                    
-                }
-                
-                
-            }
-            
-        })
-        task.resume()
-    }
-    
-    
-    
-    
     func addItemToUserList(asin:String , desiredPrice:Decimal) {
         
         if FIRAuth.auth()?.currentUser != nil {
@@ -196,7 +128,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
 //            addItemToUserList(asin: "B00LAX52IZ", desiredPrice: 10.63)
             
-            searchItem(searchTerm: "Cambridge SoundWorks OontZ Angle 3")
             
             if FIRAuth.auth()?.currentUser != nil {
                 
