@@ -87,7 +87,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
         let itemDetails = (self.itemDetailsList.object(at: indexPath.row) as AnyObject)
-        cell.textLabel?.text = itemDetails["title"] as! String
+        cell.textLabel?.text = itemDetails["title"] as? String
         return cell //BACKUP
     }
     
