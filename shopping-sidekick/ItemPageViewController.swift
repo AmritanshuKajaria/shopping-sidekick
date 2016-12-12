@@ -12,6 +12,8 @@ class ItemPageViewController: UIViewController {
     
         var isInList = true
     
+    var myASIN = String()
+    
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var desiredPriceField: UITextField!
     
@@ -37,10 +39,9 @@ class ItemPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if productLabel != nil {
-            self.productLabel.text = self.productString
-        }
+        print("look here")
+        print(myASIN)
+        //self.productLabel.text = myASIN
         
     }
     

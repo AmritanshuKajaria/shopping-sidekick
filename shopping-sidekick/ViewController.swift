@@ -84,18 +84,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return self.itemDetailsList.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
         let itemDetails = (self.itemDetailsList.object(at: indexPath.row) as AnyObject)
         cell.textLabel?.text = itemDetails["title"] as? String
         return cell //BACKUP
     }
+    var cellItem:String = ""
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "resultsSegue", sender: self)
+        
+        let itemDetails = (self.itemDetailsList.object(at: indexPath.row) as AnyObject)
+        print(itemDetails)
+        self.cellItem = (itemDetails["title"] as? String)!
+        print("self.cellItem = > " + self.cellItem)
+        super.performSegue(withIdentifier: "resultsSegue", sender: self)
     }
     
     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print("I am here, HI ")
+        let ItemInfoPage:ItemPageViewController = segue.destination as! ItemPageViewController
+        ItemInfoPage.myASIN = (self.cellItem as? String)!
+        print("myASIN => " + ItemInfoPage.myASIN)
+        
     }
 }
 
