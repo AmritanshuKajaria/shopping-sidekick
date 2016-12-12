@@ -7,8 +7,42 @@
 //
 
 import UIKit
+//import FirebaseDatabase
+//import FirebaseAuth
 
 class Item: NSObject {
+    
+    
+    
+    
+//    func getUsersItem() -> NSMutableArray
+//    {
+//        
+//        var ref: FIRDatabaseReference!
+//        
+//        let res = NSMutableArray()
+//        ref = FIRDatabase.database().reference()
+//        
+//        
+//        
+//        let userID = FIRAuth.auth()?.currentUser?.uid
+//        ref.child("users").child(userID!).child("subscribedItems").observeSingleEvent(of: .value, with: { (snapshot) in
+//            // Get user value
+//            let value = snapshot.value as? NSDictionary
+//            
+//            print(value ?? "")
+//            
+//            
+//            
+//            // ...
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
+//        
+//        return res
+//
+//    }
+    
     
 //    var ASIN:String
 //    
