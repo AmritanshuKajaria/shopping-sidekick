@@ -8,7 +8,8 @@
 
 import UIKit
 
-class AddItemViewController: UIViewController, UITextFieldDelegate {
+class AddItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+{
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchField: UITextField!
@@ -46,7 +47,9 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
                     
                     if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]
                     {
-                        let products = json["products"] as! NSArray
+                        
+                        let j = json as! NSMutableDictionary
+                        let products = j["products"] as! NSArray
                         
                         for product in products
                         {
@@ -90,7 +93,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         print("indexPath => " +  String(describing: indexPath))
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
         let itemDetails = (self.searchResult.object(at: indexPath.row) as AnyObject)
-        cell.textLabel?.text = itemDetails["title"] as! String
+        cell.textLabel?.text = itemDetails["title"] as? String
         return cell //BACKUP
     }
     
