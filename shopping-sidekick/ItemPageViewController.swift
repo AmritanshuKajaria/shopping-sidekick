@@ -140,10 +140,14 @@ class ItemPageViewController: UIViewController, UITextFieldDelegate {
                     let imageName = value?["image"] as? String ?? ""
                     
                     self.titleLabel.text = title
-                    self.currentLabel.text = current_value
-                    self.highestLabel.text = highest_value
-                    self.lowestLabel.text = lowest_value
-                    self.avgLabel.text = avg
+                    
+                    
+                    
+                    self.currentLabel.text = String(format: "%.2f", (current_value as NSString).doubleValue)
+                    //(someDouble.format(someDoubleFormat))
+                    self.highestLabel.text = String(format: "%.2f", (highest_value as NSString).doubleValue)
+                    self.lowestLabel.text = String(format: "%.2f", (lowest_value as NSString).doubleValue)
+                    self.avgLabel.text = String(format: "%.2f", (avg as NSString).doubleValue)
                     
                     let imageUrl = "https://images-na.ssl-images-amazon.com/images/I/" + imageName
                     
@@ -162,7 +166,7 @@ class ItemPageViewController: UIViewController, UITextFieldDelegate {
     
     
     //Textfield delegates
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool { // return NO to not change text
+   /* func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool { // return NO to not change text
         
         switch string {
         case "0","1","2","3","4","5","6","7","8","9":
@@ -189,6 +193,9 @@ class ItemPageViewController: UIViewController, UITextFieldDelegate {
             }
             return false
         }
+    }*/
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        return true
     }
-    
 }

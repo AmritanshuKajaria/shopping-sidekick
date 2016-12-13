@@ -270,5 +270,10 @@ class AddItemViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         return resDic
     }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        return true
+    }
 
 }

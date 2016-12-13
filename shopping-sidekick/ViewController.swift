@@ -45,7 +45,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let name = user?.displayName
             let uid = user?.uid
             
-            self.welcomeLabel.text = "Welcome " + name!
+            self.welcomeLabel.text = "Welcome, " + name!
             
             
             var ref: FIRDatabaseReference!
@@ -92,16 +92,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:TableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! TableViewCell
-
         
+        let cell:TableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! TableViewCell
         if FIRAuth.auth()?.currentUser != nil {
             
             let user = FIRAuth.auth()?.currentUser
             let name = user?.displayName
             let uid = user?.uid
-            
-            
             
             let itemDetails = (self.itemDetailsList.object(at: indexPath.row) as AnyObject)
             print(itemDetails)
