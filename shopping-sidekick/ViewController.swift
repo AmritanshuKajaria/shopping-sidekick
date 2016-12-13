@@ -79,8 +79,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 print(error.localizedDescription)
             }
         }
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-    }
+        //self.tableView.register(TableViewCell.self, forCellReuseIdentifier: "cell")
+          }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -92,10 +92,50 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
-        let itemDetails = (self.itemDetailsList.object(at: indexPath.row) as AnyObject)
-        cell.textLabel?.text = itemDetails["title"] as? String
-        return cell //BACKUP
+        let cell:TableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! TableViewCell
+
+        
+        if FIRAuth.auth()?.currentUser != nil {
+            
+            let user = FIRAuth.auth()?.currentUser
+            let name = user?.displayName
+            let uid = user?.uid
+            
+            
+            
+            let itemDetails = (self.itemDetailsList.object(at: indexPath.row) as AnyObject)
+            print(itemDetails)
+            
+            cell.productName?.text = itemDetails["title"] as? String
+            cell.productPrice?.text = itemDetails["current_value"] as? String
+            print(cell.productPrice?.text)
+
+            let users = itemDetails["subscribedUsers"] as! NSDictionary
+            let dPrice = users[uid]
+            cell.desiredPrice?.text = dPrice as! String
+            var imageName = itemDetails["image"] as! String
+            
+            
+            let imageUrl = "https://images-na.ssl-images-amazon.com/images/I/" + imageName
+            
+            let url = NSURL(string:imageUrl)
+            let data = NSData(contentsOf:url! as URL)
+            if data != nil {
+                cell.productImage.image = UIImage(data:data! as Data)
+            }
+          
+            var difference = (itemDetails["price_change"] as! NSString).doubleValue
+            if(difference > 0){
+
+                cell.priceChangeArrow.image = UIImage(named: "red-arrow")
+            }
+            else if(difference < 0){
+                cell.priceChangeArrow.image = UIImage(named: "green-arrow")
+            }
+        
+        }
+        
+        return cell
     }
     var cellItem:String = ""
     

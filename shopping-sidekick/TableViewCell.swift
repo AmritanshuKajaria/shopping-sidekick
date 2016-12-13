@@ -10,11 +10,14 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
     
+  
+    @IBOutlet weak var productImage: UIImageView!
     
-   
     @IBOutlet weak var productName: UILabel!
-    @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var desiredPrice: UILabel!
+    @IBOutlet weak var productPrice: UILabel!
+    @IBOutlet weak var priceChangeArrow: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
