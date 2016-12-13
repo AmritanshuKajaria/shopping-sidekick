@@ -56,7 +56,7 @@ class ItemPageViewController: UIViewController, UITextFieldDelegate {
             var ref: FIRDatabaseReference!
             ref = FIRDatabase.database().reference()
             
-            ref.child("items").child(asin).child("subscribedUsers").child(uid!).setValue(true)
+            ref.child("items").child(asin).child("subscribedUsers").child(uid!).setValue(desiredPriceValue)
             ref.child("users").child(uid!).child("subscribedItems").child(self.asin).setValue(desiredPriceValue)
             
             performSegue(withIdentifier: "backSegue", sender: nil)
@@ -74,6 +74,7 @@ class ItemPageViewController: UIViewController, UITextFieldDelegate {
             var ref: FIRDatabaseReference!
             ref = FIRDatabase.database().reference()
             
+            ref.child("items").child(asin).child("subscribedUsers").child(uid!).setValue(desiredPriceValue)
             ref.child("users").child(uid!).child("subscribedItems").child(self.asin).setValue(desiredPriceValue)
             
             performSegue(withIdentifier: "backSegue", sender: nil)
