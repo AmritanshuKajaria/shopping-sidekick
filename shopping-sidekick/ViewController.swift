@@ -56,20 +56,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
                 let value = snapshot.value as? NSDictionary
                 
-                for item in value!
+                if (value != nil)
                 {
-                    ref.child("items").child(item.key as! String ).observeSingleEvent(of: .value, with: { (snapshot) in
-                        
-                        let itemDetails = snapshot.value as? NSMutableDictionary
-                        itemDetails?["asin"] = item.key as! String
-                        self.itemDetailsList.add(itemDetails as Any)
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
+                    for item in value!
+                    {
+                        ref.child("items").child(item.key as! String ).observeSingleEvent(of: .value, with: { (snapshot) in
+                            
+                            let itemDetails = snapshot.value as? NSMutableDictionary
+                            itemDetails?["asin"] = item.key as! String
+                            self.itemDetailsList.add(itemDetails as Any)
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        }) { (error) in
+                            print(error.localizedDescription)
                         }
-                    }) { (error) in
-                        print(error.localizedDescription)
                     }
                 }
+                
+                
             }) { (error) in
                 print(error.localizedDescription)
             }

@@ -104,10 +104,10 @@ class AddItemViewController: UIViewController, UITableViewDelegate, UITableViewD
         var ref: FIRDatabaseReference!
         ref = FIRDatabase.database().reference()
         
-        let data = NSMutableDictionary()
-        data["title"] = itemDetails["title"] ?? "title"
-        data["image"] = itemDetails["imagesCSV"] ?? "31sf0VA5f5L.jpg"
-        ref.child("items").child(itemDetails["asin"] as! String).setValue(data)
+        ref.child("items").child(itemDetails["asin"] as! String).child("title").setValue(itemDetails["title"] ?? "title")
+        
+        ref.child("items").child(itemDetails["asin"] as! String).child("image").setValue(itemDetails["imagesCSV"] ?? "31sf0VA5f5L.jpg")
+        
         performSegue(withIdentifier: "itemDetailSegue", sender: itemDetails["asin"] ?? "")
     }
     

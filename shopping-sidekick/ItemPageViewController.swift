@@ -103,17 +103,20 @@ class ItemPageViewController: UIViewController, UITextFieldDelegate {
                 // Get item details
                 let value = snapshot.value as? NSDictionary
                 
-                for subscribedAsin in value!{
-                    let tmpAsin = subscribedAsin.key as! String
-                    let tmpVal = subscribedAsin.value as! String
-                    if( tmpAsin == self.asin)
-                    {
-                        self.addButton.isHidden = true                        
-                        self.removeButton.isHidden = false
-                        self.updateButton.isHidden = false
-                        self.desiredPriceLabel.isHidden = false
-                        self.desiredPriceLabel.text = tmpVal
-                        break
+                if value != nil
+                {
+                    for subscribedAsin in value!{
+                        let tmpAsin = subscribedAsin.key as! String
+                        let tmpVal = subscribedAsin.value as! String
+                        if( tmpAsin == self.asin)
+                        {
+                            self.addButton.isHidden = true
+                            self.removeButton.isHidden = false
+                            self.updateButton.isHidden = false
+                            self.desiredPriceLabel.isHidden = false
+                            self.desiredPriceLabel.text = tmpVal
+                            break
+                        }
                     }
                 }
                 
@@ -125,28 +128,30 @@ class ItemPageViewController: UIViewController, UITextFieldDelegate {
             ref.child("items").child(asin).observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get item details
                 let value = snapshot.value as? NSDictionary
-            
-                let title = value?["title"] as? String ?? ""
-                let current_value = value?["current_value"] as? String ?? ""
-                let highest_value = value?["highest_value"] as? String ?? ""
-                let lowest_value = value?["lowest_value"] as? String ?? ""
-                let avg = value?["avg"] as? String ?? ""
-                let imageName = value?["image"] as? String ?? ""
-
-                self.titleLabel.text = title
-                self.currentLabel.text = current_value
-                self.highestLabel.text = highest_value
-                self.lowestLabel.text = lowest_value
-                self.avgLabel.text = avg
                 
-                let imageUrl = "https://images-na.ssl-images-amazon.com/images/I/" + imageName
-
-                let url = NSURL(string:imageUrl)
-                let data = NSData(contentsOf:url! as URL)
-                if data != nil {
-                    self.itemImage.image = UIImage(data:data! as Data)
+                if value != nil
+                {
+                    let title = value?["title"] as? String ?? ""
+                    let current_value = value?["current_value"] as? String ?? ""
+                    let highest_value = value?["highest_value"] as? String ?? ""
+                    let lowest_value = value?["lowest_value"] as? String ?? ""
+                    let avg = value?["avg"] as? String ?? ""
+                    let imageName = value?["image"] as? String ?? ""
+                    
+                    self.titleLabel.text = title
+                    self.currentLabel.text = current_value
+                    self.highestLabel.text = highest_value
+                    self.lowestLabel.text = lowest_value
+                    self.avgLabel.text = avg
+                    
+                    let imageUrl = "https://images-na.ssl-images-amazon.com/images/I/" + imageName
+                    
+                    let url = NSURL(string:imageUrl)
+                    let data = NSData(contentsOf:url! as URL)
+                    if data != nil {
+                        self.itemImage.image = UIImage(data:data! as Data)
+                    }
                 }
-                
             }) { (error) in
                 print(error.localizedDescription)
             }
