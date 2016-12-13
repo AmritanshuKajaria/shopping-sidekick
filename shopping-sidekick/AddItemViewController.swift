@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class AddItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
@@ -98,6 +99,22 @@ class AddItemViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let itemDetails = (self.searchResult.object(at: indexPath.row) as AnyObject)
+        
+        var ref: FIRDatabaseReference!
+        ref = FIRDatabase.database().reference()
+        
+        let data = NSMutableDictionary()
+        data["title"] = itemDetails["title"] ?? "title"
+        data["image"] = itemDetails["imagesCSV"] ?? "31sf0VA5f5L.jpg"
+        ref.child("items").child(itemDetails["asin"] as! String).setValue(data)
+        performSegue(withIdentifier: "itemDetailSegue", sender: itemDetails["asin"] ?? "")
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "itemDetailSegue"{
+            let ItemInfoPage:ItemPageViewController = segue.destination as! ItemPageViewController
+            ItemInfoPage.asin = sender as! String
+        }
+    }
 }

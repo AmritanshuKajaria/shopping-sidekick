@@ -61,6 +61,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     ref.child("items").child(item.key as! String ).observeSingleEvent(of: .value, with: { (snapshot) in
                         
                         let itemDetails = snapshot.value as? NSMutableDictionary
+                        itemDetails?["asin"] = item.key as! String
                         self.itemDetailsList.add(itemDetails as Any)
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
@@ -94,20 +95,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var cellItem:String = ""
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let itemDetails = (self.itemDetailsList.object(at: indexPath.row) as AnyObject)
-        print(itemDetails)
-        self.cellItem = (itemDetails["title"] as? String)!
-        print("self.cellItem = > " + self.cellItem)
-        super.performSegue(withIdentifier: "resultsSegue", sender: self)
+        performSegue(withIdentifier: "resultsSegue", sender: itemDetails["asin"] ?? "title")
+        
     }
     
-    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        print("I am here, HI ")
-        let ItemInfoPage:ItemPageViewController = segue.destination as! ItemPageViewController
-        ItemInfoPage.myASIN = (self.cellItem as? String)!
-        print("myASIN => " + ItemInfoPage.myASIN)
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "resultsSegue"{
+            let ItemInfoPage:ItemPageViewController = segue.destination as! ItemPageViewController
+            ItemInfoPage.asin = sender as! String
+        }
     }
 }
 
