@@ -113,9 +113,21 @@ class AddItemViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //print("indexPath => " +  String(describing: indexPath))
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath as IndexPath) as! SearchResultsTableViewCell
         let itemDetails = (self.searchResult.object(at: indexPath.row) as AnyObject)
-        cell.textLabel?.text = itemDetails["title"] as? String
+        //cell.textLabel?.text = itemDetails["title"] as? String
+       
+        cell.productName?.text = itemDetails["title"] as? String
+        cell.productPrice?.text = itemDetails["current_value"] as? String
+        var imageName = itemDetails["image"] as! String
+        let imageUrl = "https://images-na.ssl-images-amazon.com/images/I/" + imageName
+        
+        let url = NSURL(string:imageUrl)
+        let data = NSData(contentsOf:url! as URL)
+        if data != nil {
+            cell.productImage.image = UIImage(data:data! as Data)
+            cell.productImage.contentMode = .scaleAspectFit
+        }
         return cell //BACKUP
     }
     

@@ -119,6 +119,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let data = NSData(contentsOf:url! as URL)
             if data != nil {
                 cell.productImage.image = UIImage(data:data! as Data)
+                cell.productImage.contentMode = .scaleAspectFit
             }
           
             var difference = (itemDetails["price_change"] as! NSString).doubleValue
@@ -141,6 +142,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         performSegue(withIdentifier: "resultsSegue", sender: itemDetails["asin"] ?? "title")
         
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "resultsSegue"{

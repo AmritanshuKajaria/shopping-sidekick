@@ -11,5 +11,8 @@ target 'shopping-sidekick' do
   pod 'Firebase/Database'
   pod 'Firebase/Messaging'
   pod 'Firebase/Auth'
+  pod ‘FBSDKCoreKit'
+  pod ’FBSDKLoginKit'
+  pod ‘FBSDKShareKit'
 
 end

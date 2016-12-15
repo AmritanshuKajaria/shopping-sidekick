@@ -155,6 +155,7 @@ class ItemPageViewController: UIViewController, UITextFieldDelegate {
                     let data = NSData(contentsOf:url! as URL)
                     if data != nil {
                         self.itemImage.image = UIImage(data:data! as Data)
+                         self.itemImage.contentMode = .scaleAspectFit
                     }
                 }
             }) { (error) in
