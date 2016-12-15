@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class AddItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+class AddItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate
 {
 
     @IBOutlet weak var tableView: UITableView!
@@ -19,6 +19,7 @@ class AddItemViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.searchField.delegate = self
     }
     
     @IBAction func changeTextButton(_ sender: Any) {
