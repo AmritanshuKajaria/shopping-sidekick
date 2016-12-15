@@ -224,11 +224,11 @@
                                         <rect key="frame" x="0.0" y="28" width="389" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bj6-55-qkI" id="jyX-mb-7NQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="389" height="52.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="389" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WB5-cr-SpU">
-                                                    <rect key="frame" x="15" y="0.0" width="359" height="52.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="359" height="52"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                                     <nil key="textColor"/>

@@ -17,6 +17,7 @@
 		C18C144B1DFDF9DB00358445 /* ItemPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18C144A1DFDF9DB00358445 /* ItemPageViewController.swift */; };
 		C18C144D1DFDFA1700358445 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18C144C1DFDFA1700358445 /* AddItemViewController.swift */; };
 		C18C144F1DFDFA4700358445 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18C144E1DFDFA4700358445 /* TableViewCell.swift */; };
+		C1ADEF4C1E0206C500DAAFEF /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1ADEF4B1E0206C500DAAFEF /* UserNotifications.framework */; };
 		C1B9AF051DFDF345006BAD21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B9AF041DFDF345006BAD21 /* AppDelegate.swift */; };
 		C1B9AF071DFDF345006BAD21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B9AF061DFDF345006BAD21 /* ViewController.swift */; };
 		C1B9AF0A1DFDF345006BAD21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1B9AF081DFDF345006BAD21 /* Main.storyboard */; };
@@ -35,6 +36,8 @@
 		C18C144A1DFDF9DB00358445 /* ItemPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemPageViewController.swift; sourceTree = "<group>"; };
 		C18C144C1DFDFA1700358445 /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		C18C144E1DFDFA4700358445 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		C1ADEF4A1E02059800DAAFEF /* shopping-sidekick.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "shopping-sidekick.entitlements"; sourceTree = "<group>"; };
+		C1ADEF4B1E0206C500DAAFEF /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		C1B9AF011DFDF345006BAD21 /* shopping-sidekick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "shopping-sidekick.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1B9AF041DFDF345006BAD21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1B9AF061DFDF345006BAD21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1ADEF4C1E0206C500DAAFEF /* UserNotifications.framework in Frameworks */,
 				6C28D4C3A76570101CB0364B /* Pods_shopping_sidekick.framework in Frameworks */,
 				C1592E951DFE0E6D0032406E /* FBSDKCoreKit.framework in Frameworks */,
 				C1592E971DFE17040032406E /* FBSDKLoginKit.framework in Frameworks */,
@@ -72,6 +76,7 @@
 		78EA001E5AF11B58FBC04067 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C1ADEF4B1E0206C500DAAFEF /* UserNotifications.framework */,
 				C1592E961DFE17040032406E /* FBSDKLoginKit.framework */,
 				C1592E941DFE0E6D0032406E /* FBSDKCoreKit.framework */,
 				CF10FC540DF147DBBE29D011 /* Pods_shopping_sidekick.framework */,
@@ -100,6 +105,7 @@
 		C1B9AF031DFDF345006BAD21 /* shopping-sidekick */ = {
 			isa = PBXGroup;
 			children = (
+				C1ADEF4A1E02059800DAAFEF /* shopping-sidekick.entitlements */,
 				C1592E881DFDFD4E0032406E /* GoogleService-Info.plist */,
 				C1592E921DFE08C80032406E /* LoginViewController.swift */,
 				C1B9AF041DFDF345006BAD21 /* AppDelegate.swift */,
@@ -154,6 +160,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = MXU3E7ZR48;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -375,6 +386,7 @@
 			baseConfigurationReference = F1093A7E537ABCFBB74A8574 /* Pods-shopping-sidekick.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "shopping-sidekick/shopping-sidekick.entitlements";
 				DEVELOPMENT_TEAM = MXU3E7ZR48;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -394,6 +406,7 @@
 			baseConfigurationReference = 05FA21D43C35431EC4354B62 /* Pods-shopping-sidekick.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "shopping-sidekick/shopping-sidekick.entitlements";
 				DEVELOPMENT_TEAM = MXU3E7ZR48;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
