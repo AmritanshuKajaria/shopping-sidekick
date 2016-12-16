@@ -119,6 +119,7 @@ class AddItemViewController: UIViewController, UITableViewDelegate, UITableViewD
        
         cell.productName?.text = itemDetails["title"] as? String
         cell.productPrice?.text = itemDetails["current_value"] as? String
+        print(itemDetails["current_value"] as? String)
         var imageName = itemDetails["image"] as! String
         let imageUrl = "https://images-na.ssl-images-amazon.com/images/I/" + imageName
         
