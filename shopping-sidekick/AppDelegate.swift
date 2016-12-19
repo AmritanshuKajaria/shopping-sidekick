@@ -25,6 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
+            
+            handleShortcut(shortcutItem: shortcutItem)
+            return false
+        }
+        
         
         // iOS 10 support
         if #available(iOS 10, *) {
@@ -229,6 +235,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any]) {
         // Print notification payload data
         print("Push notification received: \(data)")
+    }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void)
+    {
+        // Handle quick actions
+        completionHandler(handleShortcut(shortcutItem: shortcutItem))
+    }
+    
+    enum ShortcutIdentifier: String {
+        case addItem
+    }
+    
+    private func handleShortcut(shortcutItem: UIApplicationShortcutItem) -> Bool {
+        
+        let shortcutType = shortcutItem.type
+        guard let shortcutIdentifier = ShortcutIdentifier(rawValue: shortcutType) else {
+            return false
+        }
+        
+        switch (shortcutIdentifier) {
+        case .addItem:
+            print("addItem shortcut performed")
+//            window!.rootViewController?.present(AddItemViewController(), animated: true, completion: nil)
+            return true
+        }
+        
     }
     
     
