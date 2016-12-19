@@ -179,14 +179,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Called when APNs has assigned the device a unique token
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        // Convert token to string
-        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
         
-        // Print it to console
-        print("APNs device token: \(deviceTokenString)")
-        
-        // Persist it in your backend in case it's new
+        if FIRAuth.auth()?.currentUser != nil {
+            
+            let user = FIRAuth.auth()?.currentUser
+            let uid = user?.uid
+            
+            // Convert token to string
+            let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+            print("APNs device token: \(deviceTokenString)")
+            updateApnsTokenToDB(deviceToken: deviceTokenString, uid: uid!)
+
+        }
     }
+    
+    func updateApnsTokenToDB(deviceToken:String, uid:String) {
+        
+        var ref: FIRDatabaseReference!
+        ref = FIRDatabase.database().reference()
+        ref.child("users").child(uid).child("subscribedItems").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let subscribedItems = value?.allKeys as! NSArray
+            let userUpdate = "/users/"+uid+"/device_token"
+            var childUpdates = [userUpdate:deviceToken]
+            for item in subscribedItems{
+                let asin =  item as? String
+                let itemUpdate = "/items/" + asin! + "/subscribedUsers/" + uid + "/device_token"
+                childUpdates[itemUpdate] = deviceToken
+            }
+            for update in childUpdates{
+                ref.child(update.key).setValue(update.value)
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+    }
+    
     
     // Called when APNs failed to register the device for push notifications
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {

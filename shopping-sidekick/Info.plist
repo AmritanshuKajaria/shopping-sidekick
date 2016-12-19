@@ -56,5 +56,18 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>UIApplicationShortcutItems</key>
+    <array>
+        <dict>
+            <key>UIApplicationShortcutItemType</key>
+            <string>nyu.edu.shopping-sidekick.addItem</string>
+            <key>UIApplicationShortcutItemTitle</key>
+            <string>Add Item</string>
+            <key>UIApplicationShortcutItemSubtitle</key>
+            <string>Search for an Item</string>
+            <key>UIApplicationShortcutItemIconType</key>
+            <string>UIApplicationShortcutIconTypeAdd</string>
+        </dict>
+    </array>
 </dict>
 </plist>

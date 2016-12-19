@@ -97,7 +97,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if FIRAuth.auth()?.currentUser != nil {
             
             let user = FIRAuth.auth()?.currentUser
-            let name = user?.displayName
             let uid = user?.uid
             
             let itemDetails = (self.itemDetailsList.object(at: indexPath.row) as AnyObject)
@@ -105,14 +104,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             cell.productName?.text = itemDetails["title"] as? String
             cell.productPrice?.text = itemDetails["current_value"] as? String
-            print(cell.productPrice?.text)
 
-            let users = itemDetails["subscribedUsers"] as! NSDictionary
-            let dPrice = users[uid]
-            cell.desiredPrice?.text = dPrice as! String
-            var imageName = itemDetails["image"] as! String
+            let users_details = itemDetails["subscribedUsers"] as! NSDictionary
             
-            
+            let conf_details = users_details[uid] as! NSDictionary
+            let dPrice = conf_details["desired_price"]
+            cell.desiredPrice?.text = dPrice as? String
+
+            let imageName = itemDetails["image"] as! String
             let imageUrl = "https://images-na.ssl-images-amazon.com/images/I/" + imageName
             
             let url = NSURL(string:imageUrl)
