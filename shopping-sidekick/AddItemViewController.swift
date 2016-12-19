@@ -20,12 +20,12 @@ class AddItemViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.searchField.delegate = self
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        //let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         
         //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
         //tap.cancelsTouchesInView = false
         
-        view.addGestureRecognizer(tap)
+       // view.addGestureRecognizer(tap)
     }
     
     @IBAction func changeTextButton(_ sender: Any) {
@@ -310,9 +310,9 @@ class AddItemViewController: UIViewController, UITableViewDelegate, UITableViewD
         return true
     }
     //Calls this function when the tap is recognized.
-    func dismissKeyboard() {
+    /*func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
-    }
+    }*/
 
 }
