@@ -105,17 +105,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.productPrice?.text = itemDetails["current_value"] as? String
 
             let users_details = itemDetails["subscribedUsers"] as! NSDictionary
-            print("HERE")
-            let price = users_details[uid]
-           cell.desiredPrice?.text = price as? String
+            let conf_details = users_details[uid] as! NSDictionary
+            let dPrice = conf_details["desired_price"]
+            cell.desiredPrice?.text = dPrice as? String
             
-            //if uid != "HelzbR0xfEdvERqV0LBqBpQT2kS2"
-            //{
-                let conf_details = users_details[uid] as! NSDictionary
-                let dPrice = conf_details["desired_price"]
-                cell.desiredPrice?.text = dPrice as? String
-            //}
-
             let imageName = itemDetails["image"] as! String
             let imageUrl = "https://images-na.ssl-images-amazon.com/images/I/" + imageName
             
@@ -146,8 +139,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         performSegue(withIdentifier: "resultsSegue", sender: itemDetails["asin"] ?? "title")
         
     }
-    
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "resultsSegue"{
