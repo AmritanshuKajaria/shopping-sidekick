@@ -257,6 +257,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         switch (shortcutIdentifier) {
         case .addItem:
             print("addItem shortcut performed")
+            
+            let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "addItemView") as UIViewController
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = initialViewControlleripad
+            self.window?.makeKeyAndVisible()
+
+            
 //            window!.rootViewController?.present(AddItemViewController(), animated: true, completion: nil)
             return true
         }
