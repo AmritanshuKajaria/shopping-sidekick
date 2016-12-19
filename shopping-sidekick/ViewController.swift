@@ -100,16 +100,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let uid = user?.uid
             
             let itemDetails = (self.itemDetailsList.object(at: indexPath.row) as AnyObject)
-            print(itemDetails)
             
             cell.productName?.text = itemDetails["title"] as? String
             cell.productPrice?.text = itemDetails["current_value"] as? String
 
             let users_details = itemDetails["subscribedUsers"] as! NSDictionary
             
-            let conf_details = users_details[uid] as! NSDictionary
-            let dPrice = conf_details["desired_price"]
-            cell.desiredPrice?.text = dPrice as? String
+            if uid != "HelzbR0xfEdvERqV0LBqBpQT2kS2"
+            {
+                let conf_details = users_details[uid] as! NSDictionary
+                let dPrice = conf_details["desired_price"]
+                cell.desiredPrice?.text = dPrice as? String
+            }
 
             let imageName = itemDetails["image"] as! String
             let imageUrl = "https://images-na.ssl-images-amazon.com/images/I/" + imageName
