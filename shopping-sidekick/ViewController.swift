@@ -109,12 +109,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let price = users_details[uid]
            cell.desiredPrice?.text = price as? String
             
-            if uid != "HelzbR0xfEdvERqV0LBqBpQT2kS2"
-            {
+            //if uid != "HelzbR0xfEdvERqV0LBqBpQT2kS2"
+            //{
                 let conf_details = users_details[uid] as! NSDictionary
                 let dPrice = conf_details["desired_price"]
                 cell.desiredPrice?.text = dPrice as? String
-            }
+            //}
 
             let imageName = itemDetails["image"] as! String
             let imageUrl = "https://images-na.ssl-images-amazon.com/images/I/" + imageName
