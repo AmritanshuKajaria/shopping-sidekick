@@ -105,16 +105,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.productPrice?.text = itemDetails["current_value"] as? String
 
             let users_details = itemDetails["subscribedUsers"] as! NSDictionary
-<<<<<<< HEAD
-           // print("HERE")
-            let price = users_details[uid]
-           cell.desiredPrice?.text = price as? String
-=======
+
             let conf_details = users_details[uid] as! NSDictionary
             let dPrice = conf_details["desired_price"]
             cell.desiredPrice?.text = dPrice as? String
->>>>>>> origin/master
-            
+
             let imageName = itemDetails["image"] as! String
             let imageUrl = "https://images-na.ssl-images-amazon.com/images/I/" + imageName
             
